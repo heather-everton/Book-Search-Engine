@@ -29,6 +29,7 @@ const LoginForm = () => {
       const { data } = await loginUser({
         variables: { ...userFormData }
       });
+      console.log(data)
 
       if (error) {
         throw new Error('something went wrong!');
