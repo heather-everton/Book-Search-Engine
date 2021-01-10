@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { GET_ME } from '../utils/queries';
 import { REMOVE_BOOK } from '../utils/mutations';
@@ -9,7 +9,7 @@ import { removeBookId } from '../utils/localStorage';
 const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
 
-  const userData = data?.me || {}
+  const userData = data?.me || {};
 
   const [deleteBook, { error }] = useMutation(REMOVE_BOOK)
 
@@ -24,7 +24,7 @@ const SavedBooks = () => {
       const { data } = await deleteBook({
         variables: { bookId: bookId }
       });
-
+      console.log(data)
       if (error) {
         throw new Error('something went wrong!');
       }
