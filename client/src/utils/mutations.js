@@ -19,6 +19,11 @@ export const ADD_USER = gql`
       user {
         _id
         username
+<<<<<<< HEAD
+=======
+        email
+        password
+>>>>>>> 87fdf1c1dfb15a23ddc55c691730352dbe7e9976
       }
     }
   }

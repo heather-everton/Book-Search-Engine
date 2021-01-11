@@ -1,5 +1,8 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
+=======
+>>>>>>> 87fdf1c1dfb15a23ddc55c691730352dbe7e9976
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { GET_ME } from '../utils/queries';
 import { REMOVE_BOOK } from '../utils/mutations';
@@ -24,7 +27,6 @@ const SavedBooks = () => {
       await deleteBook({
         variables: { bookId: bookId }
       });
-
       removeBookId(bookId);
     }catch (err) {
       console.error(err);
