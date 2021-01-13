@@ -11,17 +11,17 @@ const SavedBooks = () => {
 
   const userData = data?.me || {};
 
-  const [deleteBook] = useMutation(REMOVE_BOOK)
+  const [removeBook] = useMutation(REMOVE_BOOK)
 
   // use this to determine if `useEffect()` hook needs to run again
-  const handleDeleteBook = async (bookId) => {
-    const token = Auth.login() ? Auth.getToken(): null;
+  const handleRemoveBook = async (bookId) => {
+    const token = Auth.loggedIn() ? Auth.getToken(): null;
 
     if (!token) {
       return false;
     }
     try {
-      await deleteBook({
+      await removeBook({
         variables: { bookId: bookId }
       });
       removeBookId(bookId);
@@ -55,7 +55,7 @@ const SavedBooks = () => {
                   <Card.Title>{book.title}</Card.Title>
                   <p className='small'>Authors: {book.authors}</p>
                   <Card.Text>{book.description}</Card.Text>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteBook(book.bookId)}>
+                  <Button className='btn-block btn-danger' onClick={() => handleRemoveBook(book.bookId)}>
                     Delete this Book!
                   </Button>
                 </Card.Body>
